@@ -9,8 +9,8 @@ type BtnProps = {
 export default function Btn(props: BtnProps) {
   const { color, content } = props;
   return (
-    <div>
-      <button style={{ backgroundColor: color }}>
+    <div className='btn-p'>
+      <button className='btn' style={{ backgroundColor: color }}>
         {content}
       </button>
     </div>
