@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.card{
+    height: 60px;
+    align-items: center;
+    background-color: white;
+    display: flex;
+    overflow: hidden;
+    border: 0px;
+    border-radius: 7px;
+}
+
+.uncheckP{
+    background-color: #757575;
+    height: 100%;
+}
+
+.checkedP {
+    background-color: #4BAF47;
+    height: 100%;
+}
+
+.check-btn {
+    border: 0px ;
+    border-radius: 5px;
+    padding: 7px 7px 4px 7px;
+    margin: 2px 4px auto 4px;
+    align-content: center;
+    background-color: #e1e1e1;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.checkedP > .check-btn {
+    background-color: #ffffff;
+
+}
+
+.check-btn:hover {
+    background-color: #ebebeb;
+}
+
+.check-btn:hover > .icon {
+    visibility: visible;
+}
+
+.icon{
+    visibility: hidden;
+    color: #757575;
+    height: 20px;
+    width: 20px;
+    font-weight: bolder;
+    transition: all 0.2s ease-in-out;
+}
+
+.checked > .icon {
+    visibility: visible;
+
+}
+
+.text {
+    margin: 1px auto auto 2px;
+}
+
+.text::first-letter {
+  text-transform: uppercase;
+}
