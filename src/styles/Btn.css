@@ -2,11 +2,11 @@
     box-sizing: border-box;
 }
 
-div{
+.btn-p{
     height: fit-content;
 }
 
-button {
+.btn {
     position: relative;
     border: 3px solid #d3d3d3;
     border-radius: 12px;
@@ -17,10 +17,10 @@ button {
     transition: outline 0.2s ease-in-out; 
 }
 
-button:hover {
+.btn:hover {
     outline: 5px solid #e6e6e6;
 }
 
-button:active {
+.btn:active {
     filter: brightness(85%);
 }
