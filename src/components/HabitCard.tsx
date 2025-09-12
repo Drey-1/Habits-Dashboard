@@ -30,7 +30,7 @@ export default function HabitCard({ item, onRemove , onDone }:HabitCardProps) {
     }
 
     return(
-        <div className="card" key={id}>
+        <div className="card">
             <div className="uncheckP">
                 <button className={check ? "check-btn checked" : "check-btn"} onClick={Checking}>
                     <Check className="icon"/>
