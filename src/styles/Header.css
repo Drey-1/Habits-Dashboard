@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+h1{
+    font-family: "Archivo Black", sans-serif;
+    color: var(--h1-color);
+    font-size: 40px;
+    margin: 5px 0px 0px 10px;
+}   
+
+.h1-ico {
+    width: 30px;
+    height: 30px;
+}
+
+.theme-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 37px;
+    width: 37px;
+    text-align: center;
+    background-color: var(--theme-btn-color);
+    color: var(--h1-color);
+    border-radius: 50px;
+    border: 0px;
+    margin: 5px 10px 0px 0px;
+    transition: all 0.2s;
+}
+
+.theme-btn:hover{
+    outline: 6px solid var(--hvr-outline-color);
+}
+
+.theme-btn:active{
+    filter: brightness(80%);
+}
