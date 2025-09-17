@@ -1,13 +1,11 @@
-* {
-  box-sizing: border-box;
-}
 form {
   display: flex;
   align-items: center;
 }
 
 input {
-  background: #d7d6d8;
+  background: #dddddd;
+  width: 600px;
   color: #6d6d6d;
   border: 0px;
   padding: 16px;

@@ -1,17 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-*{
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-}
 
 .card{
     height: 60px;
     align-items: center;
-    background-color: white;
+    background-color: var(--card-color);
     display: flex;
     overflow: hidden;
-    border: 0px;
+    margin-top: 5px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.26);
     border-radius: 7px;
 }
 
@@ -26,7 +21,8 @@
 }
 
 .check-btn {
-    border: 0px ;
+    border: 0px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     padding: 7px 7px 4px 7px;
     margin: 2px 4px auto 4px;
@@ -64,6 +60,7 @@
 
 .text {
     margin: 1px auto auto 2px;
+    color: var(--text-color);
 }
 
 .text::first-letter {

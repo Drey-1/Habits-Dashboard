@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --bp-color: white;
+    --h1-color: black;
+    --card-color: white;
+    --text-color: black;
+    --border-color: #d3d3d3;
+    --dashb-txt-color: #757575;
+    --theme-btn-color: #ebebeb;
+    --container-color: #EBEBEB;
+    --hvr-outline-color: #0000001a
+}
+
+.dm{
+    --bp-color: #0F0F0F;
+    --h1-color: white;
+    --card-color: #363636;
+    --text-color: white;
+    --border-color: #636363;
+    --dashb-txt-color: #a0a0a0;
+    --theme-btn-color: #2b2b2b;
+    --container-color: #272727;
+    --hvr-outline-color: #ffffff1a
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+#bigP{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bp-color);
+}
+
+.container{
+    min-width: 500px;
+    max-width: 50%;
+    background: var(--container-color);
+    padding: 10px 5px;
+    border-radius: 15px;
+    margin: 15px auto;
+}

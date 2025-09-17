@@ -1,14 +1,10 @@
-*{
-    box-sizing: border-box;
-}
-
 .btn-p{
     height: fit-content;
 }
 
 .btn {
     position: relative;
-    border: 3px solid #d3d3d3;
+    border: 3px solid var(--border-color);
     border-radius: 12px;
     color: white;
     height: 48px;
@@ -18,7 +14,7 @@
 }
 
 .btn:hover {
-    outline: 5px solid #e6e6e6;
+    outline: 5px solid var(--hvr-outline-color);
 }
 
 .btn:active {

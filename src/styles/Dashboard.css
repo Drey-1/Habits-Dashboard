@@ -1,5 +1,5 @@
 .div-dash {
     display: flex;
-    align-content: space-evenly;
-    color: #757575
+    justify-content: space-between;
+    color: var(--dashb-txt-color)
 }
