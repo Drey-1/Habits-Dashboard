@@ -9,7 +9,8 @@
     --dashb-txt-color: #757575;
     --theme-btn-color: #ebebeb;
     --container-color: #EBEBEB;
-    --hvr-outline-color: #0000001a
+    --hvr-outline-color: #0000001a;
+    --cor-do-thumb: #959595
 }
 
 .dm{
@@ -21,7 +22,8 @@
     --dashb-txt-color: #a0a0a0;
     --theme-btn-color: #2b2b2b;
     --container-color: #272727;
-    --hvr-outline-color: #ffffff1a
+    --hvr-outline-color: #ffffff1a;
+    --cor-do-thumb: #a0a0a0
 }
 
 *{
@@ -46,4 +48,22 @@
     padding: 10px 5px;
     border-radius: 15px;
     margin: 15px auto;
+}
+
+.list-scroll{
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.list-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--cor-do-thumb);
+  border-radius: 10px;
+}
+
+.list-scroll::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.list-scroll::-webkit-scrollbar {
+  width: 8px;
 }

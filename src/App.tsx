@@ -78,7 +78,8 @@ function App() {
       <div className="container">
         <HabitForm onSubmit={addHabit} />
         <Dashboard items={items} />
-        {items.map((item) => {
+        <div className='list-scroll'>
+          {items.map((item) => {
           return (
             <HabitCard
               key={item.id}
@@ -87,7 +88,8 @@ function App() {
               onDone={doneHabit}
             />
           );
-        })}
+          })}
+        </div>
       </div>
     </div>
   );
