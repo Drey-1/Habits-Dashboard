@@ -67,3 +67,9 @@
 .list-scroll::-webkit-scrollbar {
   width: 8px;
 }
+
+@media (max-width: 750px) {
+  .container{
+    min-width: 95%;
+  }
+}
