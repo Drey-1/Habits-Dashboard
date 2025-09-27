@@ -5,6 +5,7 @@ import HabitCard from './components/HabitCard';
 import Dashboard from './components/Dashboard';
 import './styles/App.css';
 import Header from './components/Header';
+import Btn from './components/Btn';
 
 type habitType = {
   id: string;
@@ -17,7 +18,10 @@ function App() {
     const savedItems = localStorage.getItem('habits');
     return savedItems ? JSON.parse(savedItems) : [];
   });
+
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  const [kindHabit, setKindhabit] = useState<'all'|'checked'|'unchecked'>("all")
 
   const saveHabits = (items: habitType[]) => {
     localStorage.setItem('habits', JSON.stringify(items));
@@ -47,6 +51,12 @@ function App() {
   const resetDones = () => {
     setItems((prev) => prev.map((item) => ({ ...item, done: false })));
   };
+
+  const filteredItems = items.filter((item) => {
+  if (kindHabit === "checked") return item.done;
+  if (kindHabit === "unchecked") return !item.done;
+  return true; // "all"
+});
 
   useEffect(() => {
     saveHabits(items);
@@ -78,17 +88,20 @@ function App() {
       <div className="container">
         <HabitForm onSubmit={addHabit} />
         <Dashboard items={items} />
+        <div>
+          <div onClick={() =>setKindhabit("all")}><Btn color='' content='All'/></div>
+          <div onClick={() =>setKindhabit("checked")}><Btn color='' content='Checked'/></div>
+          <div onClick={() =>setKindhabit("unchecked")}><Btn color='' content='Uncheked'/></div>
+        </div>
         <div className='list-scroll'>
-          {items.map((item) => {
-          return (
+          {filteredItems.map((item) => (
             <HabitCard
               key={item.id}
               item={item}
               onRemove={removeHabit}
               onDone={doneHabit}
             />
-          );
-          })}
+          ))}
         </div>
       </div>
     </div>
