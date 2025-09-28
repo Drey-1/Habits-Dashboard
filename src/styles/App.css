@@ -92,4 +92,7 @@
   .container {
     min-width: 95%;
   }
+  .habit-nav > div > div > button {
+    padding: 0px 1em;
+  }
 }
