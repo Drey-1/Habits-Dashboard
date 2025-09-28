@@ -1,58 +1,78 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root{
-    --bp-color: white;
-    --h1-color: black;
-    --card-color: white;
-    --text-color: black;
-    --border-color: #d3d3d3;
-    --dashb-txt-color: #757575;
-    --theme-btn-color: #ebebeb;
-    --container-color: #EBEBEB;
-    --hvr-outline-color: #0000001a;
-    --cor-do-thumb: #959595
+:root {
+  --bp-color: white;
+  --h1-color: black;
+  --card-color: white;
+  --text-color: black;
+  --border-color: #d3d3d3;
+  --dashb-txt-color: #757575;
+  --theme-btn-color: #ebebeb;
+  --container-color: #ebebeb;
+  --hvr-outline-color: #0000001a;
+  --cor-do-thumb: #959595;
 }
 
-.dm{
-    --bp-color: #0F0F0F;
-    --h1-color: white;
-    --card-color: #363636;
-    --text-color: white;
-    --border-color: #636363;
-    --dashb-txt-color: #a0a0a0;
-    --theme-btn-color: #2b2b2b;
-    --container-color: #272727;
-    --hvr-outline-color: #ffffff1a;
-    --cor-do-thumb: #a0a0a0
+.dm {
+  --bp-color: #0f0f0f;
+  --h1-color: white;
+  --card-color: #363636;
+  --text-color: white;
+  --border-color: #636363;
+  --dashb-txt-color: #a0a0a0;
+  --theme-btn-color: #2b2b2b;
+  --container-color: #272727;
+  --hvr-outline-color: #ffffff1a;
+  --cor-do-thumb: #a0a0a0;
 }
 
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-#bigP{
-    display: flex;
-    flex-direction: column;
-    min-width: 100vw;
-    min-height: 100vh;
-    background-color: var(--bp-color);
+#bigP {
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: var(--bp-color);
 }
 
-.container{
-    min-width: 500px;
-    max-width: 50%;
-    background: var(--container-color);
-    padding: 10px 5px;
-    border-radius: 15px;
-    margin: 15px auto;
+.container {
+  min-width: 500px;
+  max-width: 50%;
+  background: var(--container-color);
+  padding: 10px 5px;
+  border-radius: 15px;
+  margin: 15px auto;
 }
 
-.list-scroll{
-    max-height: 70.2vh;
-    overflow-y: auto;
+.habit-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.habit-nav > div {
+  margin: 0px 1em;
+}
+
+.nav-y {
+  border: 2px solid var(--dashb-txt-color);
+  border-radius: 12px;
+}
+
+.habit-nav > div > div > button {
+  padding: 0px 3em;
+  color: #757575;
+  font-weight: bolder;
+}
+
+.list-scroll {
+  max-height: 70.2vh;
+  overflow-y: auto;
 }
 
 .list-scroll::-webkit-scrollbar-thumb {
@@ -69,7 +89,7 @@
 }
 
 @media (max-width: 750px) {
-  .container{
+  .container {
     min-width: 95%;
   }
 }

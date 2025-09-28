@@ -21,7 +21,9 @@ function App() {
 
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
-  const [kindHabit, setKindhabit] = useState<'all'|'checked'|'unchecked'>("all")
+  const [kindHabit, setKindhabit] = useState<'all' | 'checked' | 'unchecked'>(
+    'all'
+  );
 
   const saveHabits = (items: habitType[]) => {
     localStorage.setItem('habits', JSON.stringify(items));
@@ -53,10 +55,10 @@ function App() {
   };
 
   const filteredItems = items.filter((item) => {
-  if (kindHabit === "checked") return item.done;
-  if (kindHabit === "unchecked") return !item.done;
-  return true; // "all"
-});
+    if (kindHabit === 'checked') return item.done;
+    if (kindHabit === 'unchecked') return !item.done;
+    return true; // "all"
+  });
 
   useEffect(() => {
     saveHabits(items);
@@ -88,12 +90,27 @@ function App() {
       <div className="container">
         <HabitForm onSubmit={addHabit} />
         <Dashboard items={items} />
-        <div>
-          <div onClick={() =>setKindhabit("all")}><Btn color='' content='All'/></div>
-          <div onClick={() =>setKindhabit("checked")}><Btn color='' content='Checked'/></div>
-          <div onClick={() =>setKindhabit("unchecked")}><Btn color='' content='Uncheked'/></div>
+        <div className="habit-nav">
+          <div
+            className={kindHabit === 'all' ? 'nav-y' : ''}
+            onClick={() => setKindhabit('all')}
+          >
+            <Btn color="" content="All" />
+          </div>
+          <div
+            className={kindHabit === 'checked' ? 'nav-y' : ''}
+            onClick={() => setKindhabit('checked')}
+          >
+            <Btn color="#87BF84" content="Checked" />
+          </div>
+          <div
+            className={kindHabit === 'unchecked' ? 'nav-y' : ''}
+            onClick={() => setKindhabit('unchecked')}
+          >
+            <Btn color="#DDDDDD" content="Uncheked" />
+          </div>
         </div>
-        <div className='list-scroll'>
+        <div className="list-scroll">
           {filteredItems.map((item) => (
             <HabitCard
               key={item.id}
