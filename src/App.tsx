@@ -19,7 +19,12 @@ function App() {
     return savedItems ? JSON.parse(savedItems) : [];
   });
 
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme === 'light' || savedTheme === 'dark'
+      ? savedTheme
+      : 'light';
+  });
 
   const [kindHabit, setKindhabit] = useState<'all' | 'checked' | 'unchecked'>(
     'all'
@@ -76,8 +81,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(JSON.stringify(items, null, 2));
-  }, [items]);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+//  useEffect(() => {
+//    console.log(JSON.stringify(items, null, 2));
+//  }, [items]);
 
   return (
     <div id="bigP" className={theme === 'dark' ? 'dm' : ''}>
