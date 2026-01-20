@@ -49,6 +49,15 @@ function App() {
     }
   };
 
+  const updateHabit = (id: string) => {
+    const newText = window.prompt('Write the new text:');
+    if(newText){
+      setItems((prev) =>
+        prev.map((item) => (item.id == id ? { ...item, title: newText } : item))
+      );
+    }
+  }
+
   const doneHabit = (id: string) => {
     setItems((prev) =>
       prev.map((item) => (item.id == id ? { ...item, done: true } : item))
@@ -126,6 +135,7 @@ function App() {
               item={item}
               onRemove={removeHabit}
               onDone={doneHabit}
+              onUpdate={updateHabit}
             />
           ))}
         </div>

@@ -59,10 +59,23 @@
 }
 
 .text {
+    display: flex;
+    justify-content: space-between;
+    gap: .5rrem;
     margin: 1px auto auto 2px;
     color: var(--text-color);
 }
 
 .text::first-letter {
   text-transform: uppercase;
+}
+
+.updt {
+    display: none;
+    color: var(--cor-do-thumb);
+    cursor: pointer;
+}
+
+.card:hover .updt {
+    display: inline;
 }
