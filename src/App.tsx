@@ -7,14 +7,10 @@ import './styles/App.css';
 import Header from './components/Header';
 import Btn from './components/Btn';
 
-type habitType = {
-  id: string;
-  title: string;
-  done: boolean;
-};
+import type { Habit } from './domain/types/habitType';
 
 function App() {
-  const [items, setItems] = useState<habitType[]>(() => {
+  const [items, setItems] = useState<Habit[]>(() => {
     const savedItems = localStorage.getItem('habits');
     return savedItems ? JSON.parse(savedItems) : [];
   });
@@ -30,12 +26,12 @@ function App() {
     'all'
   );
 
-  const saveHabits = (items: habitType[]) => {
+  const saveHabits = (items: Habit[]) => {
     localStorage.setItem('habits', JSON.stringify(items));
   };
 
   const addHabit = (newItem: string) => {
-    const habit: habitType = {
+    const habit: Habit = {
       id: v4(),
       title: newItem,
       done: false,
