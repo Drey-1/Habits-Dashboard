@@ -27,7 +27,7 @@ export function resetHabits( habits : Habit[] ) : Habit[] {
     });
 }
 
-export function updateHabitTitle( habits : Habit[], title : string,id : string ) : Habit[] {
+export function updateHabitTitle( habits : Habit[], title : string, id : string ) : Habit[] {
     return habits.map((item) => {
         return item.id === id ? { ...item, title : title} : item
     });

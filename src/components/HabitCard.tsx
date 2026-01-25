@@ -13,7 +13,7 @@ type HabitCardProps = {
     item: habitType;
     onRemove: (id: string) => void;
     onDone: (id:string) => void;
-    onUpdate: (id:string) => void;
+    onUpdate: (id:string, newTitle:string) => void;
 
 }
 
@@ -35,7 +35,12 @@ export default function HabitCard({ item, onRemove , onDone, onUpdate }:HabitCar
             </div>
             <div className="text">
                 {title}
-                <div className="updt" onClick={() => onUpdate(id)}>
+                <div className="updt" onClick={() => {
+                    const newTitle = window.prompt( "Write the new text:", item.title );
+                    if(!newTitle) return;
+                    onUpdate( id, newTitle )
+
+                }}>
                     <SquarePen />
                 </div>
             </div>
