@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import HabitForm from './components/HabitForm';
-import { v4 } from 'uuid';
 import HabitCard from './components/HabitCard';
 import Dashboard from './components/Dashboard';
 import './styles/App.css';
 import Header from './components/Header';
 import Btn from './components/Btn';
 
-import type { Habit } from './domain/types/habitType';
+import type { Habit } from './types/habitType';
+import { createHabit, deleteHabit, filterHabits, resetHabits, toggleDoneHabit, updateHabitTitle } from './domain/habitsComands';
 
 function App() {
   const [items, setItems] = useState<Habit[]>(() => {
@@ -31,44 +31,30 @@ function App() {
   };
 
   const addHabit = (newItem: string) => {
-    const habit: Habit = {
-      id: v4(),
-      title: newItem,
-      done: false,
-    };
-    setItems((prev) => [...prev, habit]);
+    setItems((prev) => [...prev, createHabit(newItem)]);
   };
 
   const removeHabit = (id: string) => {
     if (window.confirm('Do you really want to delete this habit?')) {
-      setItems((prev) => prev.filter((item) => item.id != id));
+      setItems(deleteHabit(items,id))
     }
   };
 
   const updateHabit = (id: string) => {
     const newText = window.prompt('Write the new text:');
     if(newText){
-      setItems((prev) =>
-        prev.map((item) => (item.id == id ? { ...item, title: newText } : item))
-      );
+      setItems(updateHabitTitle(items,newText,id))
     }
   }
 
   const doneHabit = (id: string) => {
-    setItems((prev) =>
-      prev.map((item) => (item.id == id ? { ...item, done: true } : item))
-    );
+    setItems(toggleDoneHabit(items,id))
   };
 
   const resetDones = () => {
-    setItems((prev) => prev.map((item) => ({ ...item, done: false })));
+    //setItems((prev) => prev.map((item) => ({ ...item, done: false })));
+    setItems(resetHabits(items))
   };
-
-  const filteredItems = items.filter((item) => {
-    if (kindHabit === 'checked') return item.done;
-    if (kindHabit === 'unchecked') return !item.done;
-    return true; // "all"
-  });
 
   useEffect(() => {
     saveHabits(items);
@@ -125,7 +111,7 @@ function App() {
           </div>
         </div>
         <div className="list-scroll">
-          {filteredItems.map((item) => (
+          {filterHabits(items,kindHabit).map((item) => (
             <HabitCard
               key={item.id}
               item={item}
