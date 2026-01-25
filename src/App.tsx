@@ -8,15 +8,13 @@ import Btn from './components/Btn';
 
 import type { Habit } from './types/habitType';
 import { createHabit, deleteHabit, filterHabits, resetHabits, toggleDoneHabit, updateHabitTitle } from './domain/habitsComands';
+import { loadDay, loadHabits, loadTheme, saveDay, saveHabits, saveTheme } from './services/localStorage';
 
 function App() {
-  const [items, setItems] = useState<Habit[]>(() => {
-    const savedItems = localStorage.getItem('habits');
-    return savedItems ? JSON.parse(savedItems) : [];
-  });
+  const [items, setItems] = useState<Habit[]>(loadHabits());
 
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = loadTheme();
     return savedTheme === 'light' || savedTheme === 'dark'
       ? savedTheme
       : 'light';
@@ -25,10 +23,6 @@ function App() {
   const [kindHabit, setKindhabit] = useState<'all' | 'checked' | 'unchecked'>(
     'all'
   );
-
-  const saveHabits = (items: Habit[]) => {
-    localStorage.setItem('habits', JSON.stringify(items));
-  };
 
   const addHabit = (newItem: string) => {
     setItems((prev) => [...prev, createHabit(newItem)]);
@@ -62,17 +56,17 @@ function App() {
 
   useEffect(() => {
     const today = new Date().toDateString();
-    const savedDay = localStorage.getItem('today');
+    const savedDay = loadDay();
 
     if (savedDay != today) {
       resetDones();
       saveHabits(items);
-      localStorage.setItem('today', today);
+      saveDay(today);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('theme', theme);
+    saveTheme(theme);
   }, [theme]);
 
 //  useEffect(() => {
