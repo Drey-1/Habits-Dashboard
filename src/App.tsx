@@ -4,9 +4,9 @@ import HabitForm from './components/HabitForm';
 import HabitCard from './components/HabitCard';
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
-import Btn from './components/Btn';
 
 import { useHabits } from './hooks/useHabits';
+import Filter from './components/Filter';
 
 function App() {
   const {
@@ -34,24 +34,9 @@ function App() {
         <HabitForm onSubmit={addHabit} />
         <Dashboard items={habits} />
         <div className="habit-nav">
-          <div
-            className={filter === 'all' ? 'nav-y' : ''}
-            onClick={() => setFilter('all')}
-          >
-            <Btn color="" content="All" />
-          </div>
-          <div
-            className={filter === 'checked' ? 'nav-y' : ''}
-            onClick={() => setFilter('checked')}
-          >
-            <Btn color="#87BF84" content="Checked" />
-          </div>
-          <div
-            className={filter === 'unchecked' ? 'nav-y' : ''}
-            onClick={() => setFilter('unchecked')}
-          >
-            <Btn color="#DDDDDD" content="Uncheked" />
-          </div>
+          <Filter filter={filter} type="all" onFilter={setFilter} bgColor="" />
+          <Filter filter={filter} type="checked" onFilter={setFilter} bgColor="#87BF84" />
+          <Filter filter={filter} type="unchecked" onFilter={setFilter} bgColor="#DDDDDD" />
         </div>
         <div className="list-scroll">
           {filteredHabits.map((item) => (

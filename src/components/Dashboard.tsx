@@ -1,14 +1,9 @@
 import { useEffect } from "react";
 import "../styles/Dashboard.css"
-
-type habitType = {
-  id: string,
-  title: string,
-  done: boolean,
-};
+import type { Habit } from "../types/habitType";
 
 type DashboardProps = {
-    items: habitType[]
+    items: Habit[]
 }
 
 export default function Dashboard({items}:DashboardProps) {
