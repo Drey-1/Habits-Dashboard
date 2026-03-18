@@ -18,7 +18,17 @@ import {
 } from '../services/localStorage';
 
 export function useHabits() {
-    const [ habits, setHabits ] = useState<Habit[]>(loadHabits());
+    const [ habits, setHabits ] = useState<Habit[]>(() => {
+        const today = new Date().toDateString();
+        const savedDay = loadDay();
+        const loadedHabits = loadHabits();
+        
+        if(today != savedDay) {
+            saveDay(today);
+            return resetHabits(loadedHabits);
+        }
+        return loadedHabits;
+    });
     const [ filter, setFilter ] = useState<'all' | 'checked' | 'unchecked'>('all');
     const [ theme, setTheme ] = useState<'light' | 'dark'>(() => {
         return loadTheme() === "dark" ? "dark" : "light";
@@ -27,15 +37,6 @@ export function useHabits() {
     useEffect(() => {
         saveHabits(habits);
     }, [habits])
-
-    useEffect(() => {
-        const today = new Date().toDateString();
-        const savedDay = loadDay();
-        if(today != savedDay) {
-            setHabits(resetHabits(habits));
-            saveDay(today);
-        }
-    }, []);
 
     useEffect(() => {
         saveTheme(theme);
