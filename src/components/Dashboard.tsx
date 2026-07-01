@@ -1,10 +1,6 @@
 import { useEffect } from "react";
 import "../styles/Dashboard.css"
-import type { Habit } from "../types/habitType";
-
-type DashboardProps = {
-    items: Habit[]
-}
+import type { DashboardProps } from "../types/DashboardProps";
 
 export default function Dashboard({items}:DashboardProps) {
     const totalItms = items.length;
@@ -13,7 +9,6 @@ export default function Dashboard({items}:DashboardProps) {
     const minutes = 60 - date.getMinutes();
     const hours = (minutes != 0?23:24) - date.getHours();
     
-
     useEffect(() => {
         if (doneItms === totalItms && totalItms > 0) {
     window.alert("CONGRATULATIONS! You made all of your habits today.");}}, [doneItms, totalItms]);
