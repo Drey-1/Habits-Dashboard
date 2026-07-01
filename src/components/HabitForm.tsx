@@ -3,10 +3,7 @@ import Btn from './Btn';
 import '../styles/HabitForm.css';
 import type React from 'react';
 import { useState } from 'react';
-
-type HabitFormProps = {
-  onSubmit: (habit: string) => void;
-};
+import type { HabitFormProps } from '../types/HabitFormProps';
 
 export default function HabitForm({ onSubmit }: HabitFormProps) {
   const [input, setInput] = useState('');
