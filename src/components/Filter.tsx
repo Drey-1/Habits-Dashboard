@@ -1,12 +1,5 @@
+import type { FilterProps } from "../types/FilterProps"
 import Btn from "./Btn"
-
-type FilterProps = {
-    filter: "all" | "checked" | "unchecked",
-    type: "all" | "checked" | "unchecked",
-    bgColor: string,
-    onFilter: (filter: "all" | "checked" | "unchecked") => void,
-    
-}
 
 export default function Filter({ filter, type, bgColor, onFilter } : FilterProps) {
     return (
