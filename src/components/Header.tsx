@@ -1,10 +1,6 @@
 import { CheckIcon, Moon, Sun } from "lucide-react";
 import "../styles/Header.css"
-
-type HeaderProps = {
-    theme:string;
-    changeTheme: () => void;
-}
+import type { HeaderProps } from "../types/HeaderProps";
 
 export default function Header({ changeTheme, theme }:HeaderProps) {
     return (
