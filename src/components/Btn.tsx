@@ -1,10 +1,5 @@
-import type React from 'react';
 import '../styles/Btn.css';
-
-type BtnProps = {
-  color?: string;
-  content?: React.ReactNode;
-};
+import type { BtnProps } from '../types/BtnProps';
 
 export default function Btn(props: BtnProps) {
   const { color, content } = props;
