@@ -2,20 +2,7 @@ import { Check, Trash, SquarePen } from "lucide-react"
 import Btn from "./Btn"
 import "../styles/HabitCard.css"
 import { useState } from "react";
-
-type habitType = {
-  id: string,
-  title: string,
-  done: boolean,
-};
-
-type HabitCardProps = {
-    item: habitType;
-    onRemove: (id: string) => void;
-    onDone: (id:string) => void;
-    onUpdate: (id:string, newTitle:string) => void;
-
-}
+import type { HabitCardProps } from "../types/HabitCardProps";
 
 export default function HabitCard({ item, onRemove , onDone, onUpdate }:HabitCardProps) {
     const { title, id ,done } = item;
