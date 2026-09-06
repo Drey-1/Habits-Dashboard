@@ -44,6 +44,7 @@ export function useHabits() {
 
     return {
         habits,
+        setHabits,
         filteredHabits: filterHabits(habits, filter),
         filter,
         setFilter,
