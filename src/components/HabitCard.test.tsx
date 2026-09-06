@@ -9,6 +9,10 @@ const mockProps = {
     onRemove: vi.fn(),
     onDone: vi.fn(),
     onUpdate: vi.fn(),
+    onDragStart: vi.fn(),
+    onMouseOver: vi.fn(),
+    onDrop: vi.fn(),
+    onDragEnd: vi.fn(),
 }
 
 describe("HabitCard", () => {
