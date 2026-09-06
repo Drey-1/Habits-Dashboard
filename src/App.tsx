@@ -1,16 +1,16 @@
 import './styles/App.css';
-
 import HabitForm from './components/HabitForm';
 import HabitCard from './components/HabitCard';
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
-
 import { useHabits } from './hooks/useHabits';
 import Filter from './components/Filter';
+import { useDragDrop } from './hooks/useDragDrop';
 
-function App() {
+export default function App() {
   const {
     habits,
+    setHabits,
     filteredHabits,
     filter,
     theme,
@@ -21,6 +21,8 @@ function App() {
     setFilter,
     setTheme, 
   } = useHabits();
+  
+  const { onDragStart,onMouseOver,onDrop,onDragEnd } = useDragDrop(habits, setHabits);
 
   return (
     <div id="bigP" className={theme === 'dark' ? 'dm' : ''}>
@@ -42,6 +44,10 @@ function App() {
           {filteredHabits.map((item) => (
             <HabitCard
               key={item.id}
+              onDragStart={onDragStart}
+              onMouseOver={onMouseOver}
+              onDrop={onDrop}
+              onDragEnd={onDragEnd}
               item={item}
               onRemove={removeHabit}
               onDone={doneHabit}
@@ -53,5 +59,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
